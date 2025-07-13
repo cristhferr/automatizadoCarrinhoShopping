@@ -5,7 +5,7 @@ automatizadoCarrinhoShopping
 incluir um produto no carrinho de compras
 
 #tecnologias utilizadas
-java
+java/gherkin
 
 #instalação
 
