@@ -1,10 +1,14 @@
 #projeto 
 automatizadoCarrinhoShopping
+
 #funcionalidades 
 incluir um produto no carrinho de compras
+
 #tecnologias utilizadas
 java
+
 #instalação
+
 1.clone do projeto:
 https://github.com/cristhferr/automatizadoCarrinhoShopping.git
 2.instalação de dependências:
