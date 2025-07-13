@@ -1,4 +1,4 @@
-package automatizado.CompraShopping;
+package automatizado.CarrinhoShopping;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -18,17 +18,15 @@ public class CarrinhoShopping {
 
 
     @Given("que acessei um site de compras")
-    public void queAcesseiUmSiteDeCompras() {
+    public void queAcesseiUmSiteDeCompras() throws InterruptedException {
         try {
             System.setProperty("webdriver.chrome.driver", "src/test/java/automatizado/resource/chromedriver_138.0.7204.94.exe");
             driver = new ChromeDriver();
             driver.manage().window().maximize();
-            long timeout = 60;
-            driver.manage().timeouts().pageLoadTimeout(timeout, TimeUnit.SECONDS);
             driver.get("https://advantageonlineshopping.com/#/");
-
-        } catch (TimeoutException e) {
-            System.out.println("https://advantageonlineshopping.com/#/");
+        } catch (Exception e) {
+            Thread.sleep(5000);
+            driver.get("https://advantageonlineshopping.com/#/");
         }
 
 
@@ -53,7 +51,7 @@ public class CarrinhoShopping {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         WebElement conferirProduto = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//h3[contains(.,'HP ELITEPAD 1000 G2 TABLET')])[1]")));
         String produtoCarrinho = conferirProduto.getAttribute("textContent");
-        String produtoEsperado = "HP ELITEPAD 1000 G2 TABLE";
+        String produtoEsperado = "HP ELITEPAD 1000 G2 TABLET";
         if (produtoCarrinho.equals(produtoEsperado)) {
             System.out.println("Produto está correto");
         } else {
